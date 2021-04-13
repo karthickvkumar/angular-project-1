@@ -1,0 +1,38 @@
+.content{
+  display: flex;
+  height: 85vh;
+}
+
+.category{
+  width: 20%;
+}
+
+.product{
+  width: 80%;
+}
+
+.breadcrum{
+  height: 30px;
+  background-color: rgb(194, 194, 194);
+  color: white;
+}
+
+.all-product{
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  height: 100%;
+}
+
+.label{
+  width: 100px;
+}
+
+.fields{
+  width: 350px;
+  margin-bottom: 8px;
+}
+
+.desc{
+  display: flex;
+}

@@ -1,0 +1,68 @@
+<app-header></app-header>
+<div class="content">
+  <div class="category">
+    <app-category></app-category>
+  </div>
+  <div class="product">
+    <div class="breadcrum">
+      <span>Home  / Products</span>
+    </div>
+    <div>
+      <button (click)="open(content)">Add Product</button>
+      <button>Checkout</button>
+      <button>Items</button>
+      <button>Sort Product</button>
+    </div>
+    <div class="all-product">
+
+      <app-product [item]="product" *ngFor="let product of productList"></app-product>
+
+      <!-- <div *ngFor="let product of productList">
+        <span>{{product.name}}</span>
+      </div> -->
+
+    </div>
+  </div>
+</div>
+
+<!-- Add Product Model -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Product</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>
+      <label class="label">Name</label>
+      <input type="text" [(ngModel)]="productInfo.name" placeholder="Enter product name.." class="fields">
+    </div>
+    <div>
+      <label class="label">Category</label>
+      <select class="fields" [(ngModel)]="productInfo.category">
+        <option selected disabled value="">Select any Category</option>
+        <option value="1">Books and Audible</option>
+        <option value="2">Mobiles and Computers</option>
+        <option value="3">Grocessory</option>
+        <option value="4">Household Care</option>
+        <option value="5">Men's Fashon</option>
+      </select>
+    </div>
+    <div>
+      <label class="label">Price</label>
+      <input type="number" [(ngModel)]="productInfo.price" placeholder="Enter the product price" class="fields"/>
+    </div>
+    <div>
+      <label class="label">Cover Image</label>
+      <input type="text" [(ngModel)]="productInfo.cover_image" placeholder="Enter the product image url" class="fields"/>
+    </div>
+    <div class="desc">
+      <label class="label">Description</label>
+      <textarea [(ngModel)]="productInfo.description" placeholder="Enter product description" class="fields"></textarea>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close(productInfo)">Save Product</button>
+  </div>
+</ng-template>
