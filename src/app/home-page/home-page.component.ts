@@ -33,6 +33,11 @@ export class HomePageComponent implements OnInit {
     })
   }
 
+  onReceiveMsg(value){
+    console.log(value)
+    this.listProduct();
+  }
+
   open(content : any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', centered: true}).result.then((result) => {
       console.log(result)

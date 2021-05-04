@@ -23,16 +23,3 @@
   overflow: auto;
   height: 100%;
 }
-
-.label{
-  width: 100px;
-}
-
-.fields{
-  width: 350px;
-  margin-bottom: 8px;
-}
-
-.desc{
-  display: flex;
-}

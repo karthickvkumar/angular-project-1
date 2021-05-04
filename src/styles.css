@@ -1,0 +1,13 @@
+
+.label{
+  width: 100px;
+}
+
+.fields{
+  width: 350px;
+  margin-bottom: 8px;
+}
+
+.desc{
+  display: flex;
+}

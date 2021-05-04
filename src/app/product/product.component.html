@@ -4,10 +4,60 @@
   <h4>Price : Rs.{{product.price}}</h4>
   <div>
     <button class="align-btn">Cart</button>
-    <button class="align-btn">Edit</button>
+    <button class="align-btn" (click)="open(editcontent)">Edit</button>
     <button class="align-btn" (click)="open(content)">Delete</button>
   </div>
 </div>
+
+
+
+<!-- Edit Product Model -->
+
+<ng-template #editcontent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit Product</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <div>
+          <label class="label">Name</label>
+          <input type="text" [(ngModel)]="product.name" [ngModelOptions]="{standalone: true}" placeholder="Enter product name.." class="fields">
+        </div>
+        <div>
+          <label class="label">Category</label>
+          <select class="fields" [(ngModel)]="product.category" [ngModelOptions]="{standalone: true}">
+            <option selected disabled value="">Select any Category</option>
+            <option value="1">Books and Audible</option>
+            <option value="2">Mobiles and Computers</option>
+            <option value="3">Grocessory</option>
+            <option value="4">Household Care</option>
+            <option value="5">Men's Fashon</option>
+          </select>
+        </div>
+        <div>
+          <label class="label">Price</label>
+          <input type="number" [(ngModel)]="product.price"  [ngModelOptions]="{standalone: true}" placeholder="Enter the product price" class="fields"/>
+        </div>
+        <div>
+          <label class="label">Cover Image</label>
+          <input type="text" [(ngModel)]="product.cover_image" [ngModelOptions]="{standalone: true}" placeholder="Enter the product image url" class="fields"/>
+        </div>
+        <div class="desc">
+          <label class="label">Description</label>
+          <textarea [(ngModel)]="product.description" [ngModelOptions]="{standalone: true}" placeholder="Enter product description" class="fields"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close({value: product, type: 'edit'})">Update</button>
+  </div>
+</ng-template>
+
 
 <!-- Delete Model -->
 <ng-template #content let-modal>
@@ -19,19 +69,6 @@
   </div>
   <div class="modal-footer">
     <button class="btn btn-default" (click)="modal.dismiss('Cross click')">Cancel</button>
-    <button class="btn btn-danger" (click)="modal.close(product)">OK</button>
-  </div>
-</ng-template>
-
-<!-- Delete Successfull Alert -->
-<ng-template #alertContent let-alertModal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">{{message}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="alertModal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-danger" (click)="alertModal.dismiss(product)">OK</button>
+    <button class="btn btn-danger" (click)="modal.close({value: product, type: 'delete'})">OK</button>
   </div>
 </ng-template>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 import {ProductApiService } from '../product-api.service';
@@ -10,8 +10,8 @@ import {ProductApiService } from '../product-api.service';
 })
 export class ProductComponent implements OnInit {
 
-  @Input('item') product : any
-  message = '';
+  @Input('item') product : any;
+  @Output() messageEvent = new EventEmitter();
 
   constructor(private modalService: NgbModal, private api : ProductApiService) { }
 
@@ -22,15 +22,21 @@ export class ProductComponent implements OnInit {
     this.modalService.open(content, {centered: true, size : 'xl'}).result.then((result) => {
         // OK
         console.log(result)
-        this.api.deleteProduct(result).subscribe((response : any) => {
-          console.log(response)
-          this.message = response.message;
-
-          //ALert Model call
-          this.open()
-        }, (error) => {
-          console.log(error)
-        })
+        if(result.type == "delete"){
+          this.api.deleteProduct(result.value).subscribe((response : any) => {
+            console.log(response)
+            this.messageEvent.emit(response);
+          }, (error) => {
+            console.log(error)
+          })
+        }
+        else if(result.type == "edit"){
+          this.api.editProduct(result.value).subscribe((response : any) => {
+            console.log(response)
+          }, (error) => {
+            console.log(error)
+          })
+        }
     }, (reason) => {
        // Cancel
     });
