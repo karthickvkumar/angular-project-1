@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {ProductApiService} from '../product-api.service';
-import {HomePageModel} from './home-page.model';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ProductApiService } from '../product-api.service';
+import { HomePageModel } from './home-page.model';
 
 @Component({
   selector: 'app-home-page',
@@ -10,23 +10,23 @@ import {HomePageModel} from './home-page.model';
 })
 export class HomePageComponent implements OnInit {
 
-  productList : HomePageModel.ListProduct[] = [];
-  productInfo : HomePageModel.Product = {
-    name : '',
-    price : '',
-    cover_image : '',
+  productList: HomePageModel.ListProduct[] = [];
+  productInfo: HomePageModel.Product = {
+    name: '',
+    price: '',
+    cover_image: '',
     category: '',
-    description : ''
+    description: ''
   }
 
-  constructor(private modalService: NgbModal, private api : ProductApiService) { }
+  constructor(private modalService: NgbModal, private api: ProductApiService) { }
 
   ngOnInit(): void {
     this.listProduct();
   }
 
-  listProduct(){
-    this.api.listProduct().subscribe((response : HomePageModel.ListProduct[]) => {
+  listProduct() {
+    this.api.listProduct().subscribe((response: HomePageModel.ListProduct[]) => {
       console.log(response)
       this.productList = response;
     }, (error) => {
@@ -34,16 +34,16 @@ export class HomePageComponent implements OnInit {
     })
   }
 
-  onReceiveMsg(value){
+  onReceiveMsg(value) {
     console.log(value)
     this.listProduct();
   }
 
-  open(content : any) {
+  open(content: any) {
     console.log(content)
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', centered: true}).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
       console.log(result)
-      this.api.addProduct(result).subscribe((response : HomePageModel.AddProductResponse) => {
+      this.api.addProduct(result).subscribe((response: HomePageModel.AddProductResponse) => {
         console.log(response);
         this.listProduct();
       }, (error) => {
