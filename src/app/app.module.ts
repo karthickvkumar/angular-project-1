@@ -14,8 +14,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { BootstrapDemoComponent } from './bootstrap-demo/bootstrap-demo.component';
 
 import { ProductApiService } from './product-api.service';
-import { AuthModule } from './feature-module/auth/auth.module';
-
 
 @NgModule({
   declarations: [
@@ -32,8 +30,7 @@ import { AuthModule } from './feature-module/auth/auth.module';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    FontAwesomeModule,
-    AuthModule
+    FontAwesomeModule
   ],
   providers: [ProductApiService],
   bootstrap: [AppComponent]

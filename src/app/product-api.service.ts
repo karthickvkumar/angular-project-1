@@ -7,6 +7,7 @@ interface Product{
   cover_image : string;
   category: string;
   description : string;
+  id: number;
 }
 
 @Injectable({

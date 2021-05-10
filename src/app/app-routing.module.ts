@@ -6,7 +6,13 @@ import { BootstrapDemoComponent } from './bootstrap-demo/bootstrap-demo.componen
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'bootstrap', component: BootstrapDemoComponent}
+  { path: 'bootstrap', component: BootstrapDemoComponent},
+  {
+    path : 'auth', loadChildren : () => import('./feature-module/auth/auth.module').then(module => module.AuthModule)
+  },
+  {
+    path : 'reports', loadChildren : () => import('./feature-module/reports/reports.module').then(module => module.ReportsModule)
+  }
 ];
 
 @NgModule({
