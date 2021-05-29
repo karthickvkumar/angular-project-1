@@ -14,6 +14,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { BootstrapDemoComponent } from './bootstrap-demo/bootstrap-demo.component';
 
 import { ProductApiService } from './product-api.service';
+import { MochParentComponent } from './moch-parent/moch-parent.component';
+import { MilkChildComponent } from './milk-child/milk-child.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProductApiService } from './product-api.service';
     CategoryComponent,
     ProductComponent,
     HomePageComponent,
-    BootstrapDemoComponent
+    BootstrapDemoComponent,
+    MochParentComponent,
+    MilkChildComponent
   ],
   imports: [
     BrowserModule,

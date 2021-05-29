@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { BootstrapDemoComponent } from './bootstrap-demo/bootstrap-demo.component';
+import {MochParentComponent} from './moch-parent/moch-parent.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -12,6 +13,9 @@ const routes: Routes = [
   },
   {
     path : 'reports', loadChildren : () => import('./feature-module/reports/reports.module').then(module => module.ReportsModule)
+  },
+  {
+    path : 'moch', component: MochParentComponent
   }
 ];
 

@@ -1,0 +1,38 @@
+.content{
+  border: 2px solid red;
+  height: 76%;
+  width: 50%;
+  margin-top: 10px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#milkTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#milkTable tr{
+  cursor: pointer;
+}
+
+#milkTable td, #milkTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#milkTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#milkTable tr:hover {background-color: #ddd;}
+
+#milkTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #db44ba;
+  color: white;
+}

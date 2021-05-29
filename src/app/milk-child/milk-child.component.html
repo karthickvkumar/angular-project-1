@@ -1,0 +1,20 @@
+<div class="content">
+  <h2>This is a Milk Child Component</h2>
+  <h3>{{information}}</h3>
+  <table id="milkTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Crime</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let list of filterData" (click)="onClickRow(list)">
+        <td>{{list.name}}</td>
+        <td>{{list.crime}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

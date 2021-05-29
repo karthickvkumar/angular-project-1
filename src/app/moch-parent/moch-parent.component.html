@@ -1,0 +1,10 @@
+<div class="outline">
+  <h1>This is a Moch Parent Component</h1>
+  <h3>The selected character {{selectedCharacter}}</h3>
+  <div class="form">
+    <input type="text" placeholder="Type any content.." [(ngModel)]="textMessage"/>
+    <button (click)="onSend()">Send</button>
+  </div>
+
+  <app-milk-child [content]="textMessage" (rowData)="onRecived($event)"></app-milk-child>
+</div>
