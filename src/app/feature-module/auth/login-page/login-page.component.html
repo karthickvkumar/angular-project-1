@@ -1,1 +1,6 @@
-<p>login-page works!</p>
+<h1>login-page works!</h1>
+<div>
+  <input type="text" placeholder="Enter username..." [(ngModel)]="username"/>
+  <button (click)="printUserName()">Print UserName</button>
+</div>
+<button [routerLink]="['/reports/bar']">Go to Reports Module</button>

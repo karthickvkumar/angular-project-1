@@ -1,0 +1,33 @@
+.wrapper{
+  height: 85vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar{
+  width: 15%;
+  border: 2px solid red;
+}
+
+.content{
+  width: 85%;
+  border: 2px solid black;
+}
+
+.chart-list{
+  height: 25%;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-list h3{
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.active-tab{
+  color: white;
+  background-color: black;
+}

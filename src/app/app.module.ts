@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 
@@ -16,6 +17,13 @@ import { BootstrapDemoComponent } from './bootstrap-demo/bootstrap-demo.componen
 import { ProductApiService } from './product-api.service';
 import { MochParentComponent } from './moch-parent/moch-parent.component';
 import { MilkChildComponent } from './milk-child/milk-child.component';
+
+import {CustomPreloadingStrategy} from './custom-preloading';
+
+
+// import { AuthModule } from './feature-module/auth/auth.module';
+// import { ReportsModule } from './feature-module/reports/reports.module';
+// import { SettingsModule } from './feature-module/settings/settings.module';
 
 @NgModule({
   declarations: [
@@ -34,9 +42,12 @@ import { MilkChildComponent } from './milk-child/milk-child.component';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    // SettingsModule,
+    // AuthModule,
+    // ReportsModule
   ],
-  providers: [ProductApiService],
+  providers: [ProductApiService, CustomPreloadingStrategy],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

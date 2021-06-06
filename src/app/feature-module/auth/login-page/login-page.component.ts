@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
+  username : string = '';
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  printUserName(){
+    console.log(this.username)
+  }
 }
